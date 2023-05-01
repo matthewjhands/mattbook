@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-editor',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent {
+
+  constructor(private elRef: ElementRef){
+    
+  }
+
+ngAfterViewInit(){
+
+}
 
 }
