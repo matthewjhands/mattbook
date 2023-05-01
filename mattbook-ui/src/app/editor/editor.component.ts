@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor';
 
 @Component({
   selector: 'app-editor',
@@ -7,12 +8,12 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class EditorComponent {
 
-  constructor(private elRef: ElementRef){
-    
+  @ViewChild('editor')
+  public rteObj!: RichTextEditorComponent;
+
+  onChange(): void {
+    console.log('Rich Text Editor <b>change</b> event called<hr>');
+    console.log(this.rteObj.getHtml());
   }
-
-ngAfterViewInit(){
-
-}
 
 }
