@@ -14,7 +14,8 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.restService.getAllNotes().subscribe((data) => {
-      console.log(data)
+      let notes = JSON.parse(data.toString());
+      console.log(notes);
     });
   }
 
