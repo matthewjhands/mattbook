@@ -9,8 +9,10 @@ export interface ServerResponse {
     }
 }
 
+
 export enum EventType {
-    NOTE_CLICKED,
+  NOTE_CLICKED,
+  SAVE_NOTE
 }
 
 export interface MattbookEvent {

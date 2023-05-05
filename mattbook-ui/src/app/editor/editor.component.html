@@ -1,9 +1,15 @@
 <div class="bg-secondary-subtle">
     <div class="row">
-        <ejs-richtexteditor id='defaultRTE' #editor (change)='onChange()'>
+        <ejs-richtexteditor id='defaultRTE' #editor>
             <ng-template #valueTemplate>
                 <p>Enter your note here!</p>
             </ng-template>
         </ejs-richtexteditor>
+    </div>
+    <div class="row fixed-bottom">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+            <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+          </div>
     </div>
 </div>

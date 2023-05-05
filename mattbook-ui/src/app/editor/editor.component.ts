@@ -3,20 +3,22 @@ import { RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor'
 import { EventService } from '../event.service';
 import { Subscription } from 'rxjs';
 import { EventType, MattbookEvent, Note } from '../interfaces';
+import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent  {
+export class EditorComponent {
 
   @ViewChild('editor')
   public rteObj!: RichTextEditorComponent;
   private events : Subscription;
   private currentNote! : Note;
 
-  constructor(private eventService: EventService){
+  constructor(private eventService: EventService,
+    private restService: RestService){
     this.events = this.eventService.events.subscribe({
       next: (event: MattbookEvent) => {
         console.debug("Editor has received event:", event);
@@ -38,8 +40,16 @@ export class EditorComponent  {
 
   }
 
-  onChange(): void {
-    console.log('Rich Text Editor <b>change</b> event called<hr>');
+  onSave(): void {
+    console.log("Editor Save button clicked");
+    console.log(this.rteObj.getHtml());
+    const newNote : Note = {id: this.currentNote.id, body: this.rteObj.getHtml()};
+    this.restService.updateNote(newNote);
+  }
+
+  onDelete(): void {
+    console.log("Editor Delete button clicked");
+    this.restService.deleteNote(this.currentNote);
     console.log(this.rteObj.getHtml());
   }
 
