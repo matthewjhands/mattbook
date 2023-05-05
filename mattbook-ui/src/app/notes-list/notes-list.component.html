@@ -1,1 +1,3 @@
-<app-note-preview></app-note-preview>
+<ng-template ngFor let-note [ngForOf]="notes" let-i="index">
+    <app-note-preview [note]="note"></app-note-preview>
+  </ng-template>
