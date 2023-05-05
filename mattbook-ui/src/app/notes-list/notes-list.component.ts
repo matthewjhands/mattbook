@@ -12,16 +12,16 @@ export class NotesListComponent implements OnInit {
   public notes : Note[] = [];
 
   constructor(private restService: RestService){
-
   }
 
   ngOnInit(): void {
     this.restService.getAllNotes().subscribe((data: ServerResponse) => {
-      this.notes = data['_embedded'].notes
-      
-      for (let index = 0; index < this.notes.length; index++) {
-        const element = this.notes[index];
-        console.debug(element)
+      // slight hack - manually readd id which doesn't get sent by server
+      for (let index = 0; index < data['_embedded'].notes.length; index++) {
+        const element = data['_embedded'].notes[index];
+        const newNote : Note = {id: index, body: element.body};
+        this.notes.push(newNote);
+        console.debug(newNote);
       }
     });
   }

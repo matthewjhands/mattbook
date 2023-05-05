@@ -8,3 +8,12 @@ export interface ServerResponse {
         notes: Note[];
     }
 }
+
+export enum EventType {
+    NOTE_CLICKED,
+}
+
+export interface MattbookEvent {
+    event: EventType;
+    note: Note;
+}
