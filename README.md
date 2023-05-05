@@ -3,7 +3,7 @@
 ## Intro
 This is a Note Taking app written in Java 11 and Angular 15.
 
-![](./docs/mattbook-wip.png)
+![](./docs/mattbook.png)
 
 ## Implemented so far
  * Java JPA/H2 database created and initialised with sample data -
@@ -16,16 +16,16 @@ This is a Note Taking app written in Java 11 and Angular 15.
  * Basic styling in place
  * Inter-component event messaging using Subject observables
  * GET all functionality to populate a list of notes from the server
+ * CREATE, POST, PUT, DELETE note functionality
 
-
-## Still to do
- * Add POST/PUT/DELETE functionality for notes on UI - 
-   * interface with Java rest controller and add ui new button
+## With more time, I would..
  * Write tests - ui and backend
  * Improve UI design 😊
  * Write Error Handling
+ * Probably persist the note database to a file
+ * There's a small bug that the first 5 (i.e. default notes) create attempts will fail due to a re-used Primary Key (ID) error - so fix that.
 
-## Non-MVP items (Nice to haves) 
+### Non-MVP items (Nice to haves) 
  * Upload images/videos and attachments
  * Implement collections of notes (e.g. work, school, personal)
  * Search function
